@@ -2,6 +2,9 @@ import csv
 from csv_loggers import CSVLogger
 
 class TestCSVLogger(CSVLogger):
+    def __init__(self):
+        raise NotImplementedError
+        
     def test_run(self):
         
         # initializing component
