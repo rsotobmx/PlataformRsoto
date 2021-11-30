@@ -1,18 +1,15 @@
 import csv
 from csv_loggers import CSVLogger
 
-class TestCSVLogger(CSVLogger):
-    def __init__(self):
-        raise NotImplementedError
-        
+class TestCSVLogger:
     def test_run(self):
         
         # initializing component
-        logs = self.CSVLogger()
+        logs = CSVLogger()
         
         #writing a message
         message = "test"
-        logs.run(data=message)
+        logs.run(message)
         
         
         #assertions
@@ -20,5 +17,5 @@ class TestCSVLogger(CSVLogger):
             reader = csv.reader(f)
             for row in reader:
                 if row:
-                    assert row[-1]== message 
+                    assert row[-1] == message 
                 

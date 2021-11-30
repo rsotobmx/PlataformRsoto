@@ -1,8 +1,11 @@
-from mint.action.base import Action
+from base import Action
 from loguru import logger 
+from typing import Any
 
-class Analysis(Action):
-    def __init__(self,action:Action =None):
+
+class Analysis:
+    def __init__(self,
+                 action: Action =None):
         
         self._action = action
         
@@ -13,7 +16,7 @@ class Analysis(Action):
        
         """
         raise NotImplementedError 
-    def on_message(self,message):
+    def on_message(self,message:Any):
         """
             processes a new incoming message
        
@@ -22,14 +25,14 @@ class Analysis(Action):
         self.calculate(incoming_data)
         
         
-    def parse_message(self,message):
+    def parse_message(self, message: Any):
         """
             parses the incoming message data
         """
         raise NotImplementedError
         
-    def send_signal(self):
+    def send_signal(self,message: str):
         logger.info(f"New signal: {message}")
-        if self.action:
+        if self._action:
             self._action.run(message)
         pass

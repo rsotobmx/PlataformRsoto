@@ -1,4 +1,4 @@
-from base_analysis import Analisys
+from base_analysis import Analysis
 from base import Action
 
 class mockAction(Action):
@@ -7,12 +7,14 @@ class mockAction(Action):
         
 class TestAnalysis:
     def test_send_signal(self):
+        
         #initialiazind components
         action = mockAction()
-        analyzer = Analisys(action=action)
+        analyzer = Analysis(action=action)
+        message = "test"
         
         #sending signal
-        message = "test"
+        
         analyzer.send_signal(message)
         
         #assert self.data 
