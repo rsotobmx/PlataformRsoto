@@ -15,17 +15,13 @@ class CSVLogger(Action):
         
          
               
-    def run(self,data):
-        """
-
-            Basic logger that writes a 
-            timestamp and a message
+    def run(self, data):
+        """ Basic logger that writes a timestamp and message in
+        a csv file.
         """
         logger.debug("CSVLogger called")
         
-        
-        #writing data into th csv
         with open(self.file_name, 'w') as f:
             writer = csv.writer(f)
-            writer.writerow([dt.datetime.now().isoformat(),data])
-            logger.info(f"File written with:2 {data} ")
+            writer.writerow([dt.datetime.now().isoformat(), data])
+            logger.info(f"File written with: {data}")

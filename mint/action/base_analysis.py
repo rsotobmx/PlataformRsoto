@@ -1,7 +1,7 @@
 from base import Action
 from loguru import logger 
 from typing import Any,Optional
-
+            
 
 class Analysis:
     def __init__(self,
